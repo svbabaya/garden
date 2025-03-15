@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+
+from werkzeug.utils import redirect
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
@@ -23,6 +25,23 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/create_article', methods=['POST', 'GET'])
+def create_article():
+    if request.method == 'POST':
+        title = request.form['title']
+        intro = request.form['intro']
+        text = request.form['text']
+        article = Article(title = title, intro = intro, text = text)
+        try:
+            db.session.add(article)
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'Error'
+
+    else:
+        return render_template('create_article.html')
 
 @app.route('/plant/<string:name>/<int:id>')
 def plant(name, id):
