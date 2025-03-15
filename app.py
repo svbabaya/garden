@@ -12,7 +12,6 @@ class Article(db.Model):
     intro = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text(300), nullable=False)
     date = db.Column(db.DateTime, default=datetime.now)
-
     def __repr__(self):
         return '<Article %r>' % self.id
 
@@ -30,4 +29,9 @@ def plant(name, id):
     return 'Plant page'
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
