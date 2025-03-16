@@ -32,14 +32,13 @@ def create_article():
         title = request.form['title']
         intro = request.form['intro']
         text = request.form['text']
-        article = Article(title = title, intro = intro, text = text)
+        article = Article(title=title, intro=intro, text=text)
         try:
             db.session.add(article)
             db.session.commit()
             return redirect('/')
         except:
             return 'Error'
-
     else:
         return render_template('create_article.html')
 
@@ -47,10 +46,10 @@ def create_article():
 def plant(name, id):
     return 'Plant page'
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
-
 # if __name__ == '__main__':
+#     with app.app_context():
+#         db.create_all()
 #     app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
