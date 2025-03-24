@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
 
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
 db = SQLAlchemy(app)
+
+with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
+    settings = json.load(read_file)
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +24,7 @@ class Article(db.Model):
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', settings=settings)
 
 @app.route('/about')
 def about():
