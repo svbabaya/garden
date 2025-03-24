@@ -6,7 +6,7 @@ import json
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/plants.db'
 db = SQLAlchemy(app)
 
 with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
@@ -14,12 +14,16 @@ with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    intro = db.Column(db.String(300), nullable=False)
-    text = db.Column(db.Text(300), nullable=False)
+    main_category = db.Column(db.Integer, nullable=False)
+    sub_category = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    short_text = db.Column(db.String(300), nullable=False)
+    long_text = db.Column(db.Text(1000), nullable=False)
+    preview_img = db.Column(db.String(100), nullable=False, default='default.jpg')
+    status = db.Column(db.String(20), nullable=False)
     date = db.Column(db.DateTime, default=datetime.now)
     def __repr__(self):
-        return '<Article %r>' % self.id
+        return f'<article {self.id}>'
 
 @app.route('/')
 @app.route('/home')
@@ -33,10 +37,10 @@ def about():
 @app.route('/create_article', methods=['POST', 'GET'])
 def create_article():
     if request.method == 'POST':
-        title = request.form['title']
-        intro = request.form['intro']
-        text = request.form['text']
-        article = Article(title=title, intro=intro, text=text)
+        name = request.form['name']
+        short_text = request.form['short_text']
+        long_text = request.form['long_text']
+        article = Article(name=name, short_text=short_text, long_text=long_text)
         try:
             db.session.add(article)
             db.session.commit()

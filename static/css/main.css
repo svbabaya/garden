@@ -1,3 +1,17 @@
 body {
-    background-color: rgba(0, 255, 183, 0.561);
+    background-color: rgb(219, 229, 221);
+    /* background-image: url(../img/bg-homepage-1.svg); */
+}
+
+header {
+    text-align: center;
+}
+
+.main-background {
+    width: 1440px;
+    height: 1280px;
+    background-image: url(../img/bg-homepage-1.svg);
+    background-repeat: no-repeat;
+    background-size: auto
+    /* background-attachment: fixed; */
 }
