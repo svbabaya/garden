@@ -7,7 +7,8 @@ import json
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{app.root_path}/database/plants.db'
 db = SQLAlchemy(app)
 
 with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
