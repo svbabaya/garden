@@ -2,11 +2,12 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
+# import sqlite3
 
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/plants.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
 db = SQLAlchemy(app)
 
 with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
@@ -23,7 +24,7 @@ class Article(db.Model):
     status = db.Column(db.String(20), nullable=False)
     date = db.Column(db.DateTime, default=datetime.now)
     def __repr__(self):
-        return f'<article {self.id}>'
+        return f'<Article {self.id}>'
 
 @app.route('/')
 @app.route('/home')
@@ -54,10 +55,7 @@ def create_article():
 def plant(name, id):
     return 'Plant page'
 
-# if __name__ == '__main__':
-#     with app.app_context():
-#         db.create_all()
-#     app.run(debug=True)
-
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
