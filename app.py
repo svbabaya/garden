@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
-# import sqlite3
+import enum
 
 from werkzeug.utils import redirect
 
@@ -26,6 +26,20 @@ class Article(db.Model):
     date = db.Column(db.DateTime, default=datetime.now)
     def __repr__(self):
         return f'<Article {self.id}>'
+
+class MainCategory(enum.Enum):
+    nothing = 0
+    tree = 1
+    fruit_tree = 2
+    bush = 3
+    fruit_bush = 4
+    herbaceous_plant = 5
+
+class SubCategoryHerbaceousPlant(enum.Enum):
+    nothing = 0
+    perennial_ornamental = 1
+    annuals_ornamental = 2
+    perennial_wild = 3
 
 @app.route('/')
 @app.route('/home')

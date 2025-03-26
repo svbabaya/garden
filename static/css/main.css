@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(219, 229, 221);
+    /* background-color: rgb(219, 229, 221);*/
+    background-color: #008550;
     /* background-image: url(../img/bg-homepage-1.svg); */
 }
 
@@ -10,7 +11,7 @@ header {
 .main-background {
     width: 1440px;
     height: 1280px;
-    background-image: url(../img/bg-homepage-1.svg);
+    background-image: url(../img/bg-02-01.png);
     background-repeat: no-repeat;
     background-size: auto
     /* background-attachment: fixed; */
