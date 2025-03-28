@@ -57,7 +57,14 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html',  settings=settings)
+
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html',  settings=settings)
+
+
+
 
 @app.route('/create_article', methods=['POST', 'GET'])
 def create_article():
