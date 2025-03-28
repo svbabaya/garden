@@ -3,16 +3,21 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
 import enum
-
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///plants.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{app.root_path}/database/plants.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{app.root_path}/database/data.db'
 db = SQLAlchemy(app)
 
 with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
     settings = json.load(read_file)
+
+class Phrase(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.Text(300), unique=True, nullable=False)
+    author = db.Column(db.String(100))
+    def __repr__(self):
+        return f'<Phrase {self.id}>'
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,14 +26,14 @@ class Article(db.Model):
     name = db.Column(db.String(100), unique=True, nullable=False)
     short_text = db.Column(db.String(300), nullable=False)
     long_text = db.Column(db.Text(1000), nullable=False)
-    preview_img = db.Column(db.String(100), nullable=False, default='default.jpg')
+    image_directory = db.Column(db.String(100), nullable=False, default='default.jpg')
+    location = db.Column(db.Integer, nullable=False)
     status = db.Column(db.String(20), nullable=False)
     date = db.Column(db.DateTime, default=datetime.now)
     def __repr__(self):
         return f'<Article {self.id}>'
 
 class MainCategory(enum.Enum):
-    nothing = 0
     tree = 1
     fruit_tree = 2
     bush = 3
@@ -36,15 +41,19 @@ class MainCategory(enum.Enum):
     herbaceous_plant = 5
 
 class SubCategoryHerbaceousPlant(enum.Enum):
-    nothing = 0
     perennial_ornamental = 1
     annuals_ornamental = 2
     perennial_wild = 3
 
-@app.route('/')
-@app.route('/home')
+# @app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html', settings=settings)
+
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('home.html', settings=settings)
 
 @app.route('/about')
 def about():

@@ -1,18 +1,128 @@
 body {
-    /* background-color: rgb(219, 229, 221);*/
-    background-color: #008550;
-    /* background-image: url(../img/bg-homepage-1.svg); */
+    background-color: #f7f7f7;
+    padding-top: 0px 10px 10px 10px;
+}
+
+/*.main-background {
+    background-image: url(../img/bg-002.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    /* background-attachment: fixed;
+} */
+
+.main-background{
+
 }
 
 header {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.main-background {
-    width: 1440px;
-    height: 1280px;
-    background-image: url(../img/bg-02-01.png);
-    background-repeat: no-repeat;
-    background-size: auto
-    /* background-attachment: fixed; */
+nav {
 }
+
+main {
+    text-align: center;
+}
+
+.section-school-name {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.section-title-site {
+    margin-bottom: 20px;
+    font-size: 54px;
+    color: #418E01;
+    line-height: 1;
+}
+
+.section-message {
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: inline-block;
+    width: 350px;
+}
+
+.section-author {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.section-buttons {
+    margin-bottom: 20px;
+}
+
+.button {
+  border: none;
+  border-radius: 14px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button-start {
+  background-color: #ffa739;
+}
+
+.button-start:hover {
+  background-color: #ffb739;
+}
+
+.button-about {
+  background-color: #e5e5e5;
+}
+
+.button-about:hover {
+  background-color: #ebebeb;
+}
+
+
+
+.dark-font-color {
+    color: #212121;
+}
+
+
+
+
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+}
+
+li {
+    display: inline;
+    margin-right: 100px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+a:hover {
+    color: red;
+}
+
+li:last-child {
+    margin-right: 0px;
+}
+
+/*div {
+    background-color: green;
+    margin: 70px 30px 70px 30px;
+    padding: 30px 30px 30px 30px;
+    border: 3px solid black;
+} */
+
