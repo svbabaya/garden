@@ -3,24 +3,16 @@ body {
     padding-top: 0px 10px 10px 10px;
 }
 
-/*.main-background {
-    background-image: url(../img/bg-002.svg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    /* background-attachment: fixed;
-} */
-
-.main-background{
-
+.dark-font-color {
+    color: #212121;
 }
 
 header {
-    text-align: center;
+    height: 100px;
+    background-image: url(../img/bg-top-07.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
     margin-bottom: 20px;
-}
-
-nav {
 }
 
 main {
@@ -71,7 +63,7 @@ main {
 }
 
 
-
+/*** Buttons ***/
 
 .button {
   border: none;
@@ -114,13 +106,7 @@ main {
 
 
 
-.dark-font-color {
-    color: #212121;
-}
-
-
-
-
+/*** Tmp ***/
 
 ul {
     list-style-type: none;

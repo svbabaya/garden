@@ -63,7 +63,9 @@ def about():
 def gallery():
     return render_template('gallery.html',  settings=settings)
 
-
+@app.route('/trees')
+def trees():
+    return render_template('trees.html',  settings=settings)
 
 
 @app.route('/create_article', methods=['POST', 'GET'])
