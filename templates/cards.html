@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section class="section-page-name montserrat-alternates-bold">{{ settings['title_cards_page'] }}</section>
+
+    <section class="card-container">
+
+        <div class="card">
+            <img src="../static/gallery/1/5/1.png" alt="Plant-photo">
+            <div class="card-content">
+                <h3 class="montserrat-alternates-semibold">{{ settings['name'] }}</h3>
+                <p class="montserrat-alternates-regular">{{ settings['short_text'] }}</p>
+                <a href="" class="btn montserrat-alternates-regular">ОТКРЫТЬ</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/gallery/1/11/1.png" alt="Plant-photo">
+            <div class="card-content">
+                <h3 class="montserrat-alternates-semibold">{{ settings['name_2'] }}</h3>
+                <p class="montserrat-alternates-regular">{{ settings['short_text_2'] }}</p>
+                <a href="" class="btn montserrat-alternates-regular">ОТКРЫТЬ</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/gallery/1/13/1.png" alt="Plant-photo">
+            <div class="card-content">
+                <h3 class="montserrat-alternates-semibold">{{ settings['name_3'] }}</h3>
+                <p class="montserrat-alternates-regular">{{ settings['short_text_3'] }}</p>
+                <a href="" class="btn montserrat-alternates-regular">ОТКРЫТЬ</a>
+            </div>
+        </div>
+
+
+
+    </section>
+</main>
+
+{% endblock %}

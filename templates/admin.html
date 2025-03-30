@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section class="section-page-name montserrat-alternates-bold">{{ settings['title_admin_page'] }}</section>
+    <section>
+    <form method="post">
+        <input type="text" name="name" id="name_id" class="form-control" placeholder="Название"><br>
+        <textarea name="short_text" id="short_text_id" class="form-control" placeholder="Краткое описание"></textarea><br>
+        <textarea name="long_text" id="long_text_id" class="form-control" placeholder="Полное описание"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Отправить"><br>
+    </form>
+    </section>
+</main>
+
+{% endblock %}

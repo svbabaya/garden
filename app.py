@@ -63,13 +63,20 @@ def about():
 def gallery():
     return render_template('gallery.html',  settings=settings)
 
-@app.route('/trees')
-def trees():
-    return render_template('trees.html',  settings=settings)
+@app.route('/cards')
+def cards():
+    return render_template('cards.html',  settings=settings)
 
 
-@app.route('/create_article', methods=['POST', 'GET'])
-def create_article():
+
+
+
+@app.route('/auth')
+def auth():
+    return render_template('auth.html',  settings=settings)
+
+@app.route('/admin', methods=['POST', 'GET'])
+def admin():
     if request.method == 'POST':
         name = request.form['name']
         short_text = request.form['short_text']
@@ -82,13 +89,15 @@ def create_article():
         except:
             return 'Error'
     else:
-        return render_template('create_article.html')
+        return render_template('admin.html', settings=settings)
 
 @app.route('/plant/<string:name>/<int:id>')
 def plant(name, id):
     return 'Plant page'
 
+
+
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     app.run(debug=True)
