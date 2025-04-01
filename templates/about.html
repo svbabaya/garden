@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-<!--{% block title %}-->
-<!--About page-->
-<!--{% endblock %}-->
-
 {% block content %}
 
 <main>
     <section class="section-page-name montserrat-alternates-bold">{{ settings['title_about_page'] }}</section>
-    <section class="section-page-text montserrat-alternates-regular">{{ settings['text_about_page'] }}</section>
+    <section class="section-page-text montserrat-alternates-regular">
+        <p>{{ settings['text_about_page'] }}</p>
+    </section>
+    <section class="section-map">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6216148e677ec1ef71e915357d39705ba2b86588599fcef27492315e8e989193&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+    </section>
     <div>
         <a href="home" class="button-2 btn-about montserrat-alternates-medium">НАЗАД</a>
     </div>

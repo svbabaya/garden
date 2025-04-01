@@ -57,26 +57,26 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html',  settings=settings)
+    return render_template('about.html', settings=settings)
 
 @app.route('/gallery')
 def gallery():
-    return render_template('gallery.html',  settings=settings)
+    return render_template('gallery.html', settings=settings)
 
 @app.route('/cards/<int:id>')
 def cards(id: int):
 
-    return render_template('cards.html',  settings=settings)
+    return render_template('cards.html', settings=settings)
 
 @app.route('/item/5')
 def item():
-    return render_template('item.html',  settings=settings)
+    return render_template('item.html', settings=settings)
 
 
 
 @app.route('/auth')
 def auth():
-    return render_template('auth.html',  settings=settings)
+    return render_template('auth.html', settings=settings)
 
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():
