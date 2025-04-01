@@ -68,7 +68,7 @@ def cards(id: int):
 
     return render_template('cards.html',  settings=settings)
 
-@app.route('/item')
+@app.route('/item/5')
 def item():
     return render_template('item.html',  settings=settings)
 
