@@ -1,8 +1,8 @@
-* {
+/* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
+} */
 
 body {
     background-color: #f7f7f7;
@@ -38,19 +38,17 @@ main {
     line-height: 1;
 }
 
-.section-message {
+.message {
     margin-bottom: 5px;
     font-size: 14px;
-    /* display: inline-block;
-    width: 350px; */
 }
 
-.section-author {
+.author {
     margin-bottom: 30px;
     font-size: 14px;
 }
 
-.section-buttons {
+.section-buttons-home {
     margin-bottom: 20px;
 }
 
@@ -85,6 +83,34 @@ main {
   cursor: pointer;
 }
 
+/***** href *****/
+.button-2 {
+    display: inline-block;
+    border-radius: 14px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+}
+.btn-start {
+  background-color: #ffa739;
+}
+.btn-start:hover {
+  background-color: #ffb739;
+}
+.btn-about {
+  background-color: #e5e5e5;
+}
+.btn-about:hover {
+  background-color: #ebebeb;
+}
+/****************/
+
+
 .button-start {
   background-color: #ffa739;
 }
@@ -108,6 +134,8 @@ main {
 .button-gallery:hover {
   background-color: #b3f9a1;
 }
+
+
 
 /*************/
 /*** cards ***/
@@ -160,13 +188,15 @@ main {
     border-radius: 4px;
     margin-top: 16px;
     color: #fff;
-}
-.btn {
     position: absolute;
     bottom: 10px;
 }
 
 /*** end cards ***/
+
+
+
+
 
 
 
@@ -188,13 +218,13 @@ li {
     margin-right: 100px;
 }
 
-a {
+.nav-tmp a {
     color: black;
     text-decoration: none;
     font-size: 18px;
 }
 
-a:hover {
+.nav-tmp a:hover {
     color: red;
 }
 
@@ -204,6 +234,7 @@ li:last-child {
 
 .section-about {
     position: relative;
+    margin-bottom: 20px;
 }
 .section-about__block {
     width: 420px;
@@ -234,10 +265,29 @@ li:last-child {
     margin: 0px;
 }
 
-/*div {
-    background-color: green;
-    margin: 70px 30px 70px 30px;
-    padding: 30px 30px 30px 30px;
-    border: 3px solid black;
-} */
+.section-description__icon-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section-description__icon-box img {
+    margin-right: 76px;
+}
+.section-description__icon-box img:last-child {
+    margin-right: 0px;
+}
+.section-description__title {
+    margin: 0px;
+    font-size: 96px;
+    text-align:center;
+}
+.section-description__span {
+    color: red;
+}
+.section-description__text {
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    width: 1000px;
+}
+
 

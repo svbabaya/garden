@@ -63,11 +63,14 @@ def about():
 def gallery():
     return render_template('gallery.html',  settings=settings)
 
-@app.route('/cards')
-def cards():
+@app.route('/cards/<int:id>')
+def cards(id: int):
+
     return render_template('cards.html',  settings=settings)
 
-
+@app.route('/item')
+def item():
+    return render_template('item.html',  settings=settings)
 
 
 
