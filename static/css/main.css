@@ -327,6 +327,9 @@ li:last-child {
     text-align: center;
     width: 1000px;
 }
+.section-map {
+    margin-bottom: 40px;
+}
 .section-map__title {
     margin-bottom: 20px;
     text-align: center;
@@ -335,6 +338,29 @@ li:last-child {
 iframe {
     display: block;
     margin: 0 auto;
+}
+.line {
+    border-top: 1px solid black;
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.line-2 {
+    height: 1px;
+    background-color: red;
+    margin: 0 auto;
+    width: 500px;
+    margin-bottom: 20px;
+}
+hr {
+    border-top: 10px solid green;
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+footer {
+    height: 100px;
 }
 
 
