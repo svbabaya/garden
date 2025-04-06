@@ -5,12 +5,14 @@ import json
 import enum
 from werkzeug.utils import redirect
 
+import settings
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{app.root_path}/database/data.db'
 db = SQLAlchemy(app)
 
-with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
-    settings = json.load(read_file)
+# with open('templates/settings.json', mode='r', encoding='utf-8') as read_file:
+#     settings = json.load(read_file)
 
 class Phrase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -48,35 +50,35 @@ class SubCategoryHerbaceousPlant(enum.Enum):
 # @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', settings=settings)
+    return render_template('index.html', settings=settings.lst)
 
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html', settings=settings)
+    return render_template('home.html', settings=settings.lst)
 
 @app.route('/about')
 def about():
-    return render_template('about.html', settings=settings)
+    return render_template('about.html', settings=settings.lst)
 
 @app.route('/gallery')
 def gallery():
-    return render_template('gallery.html', settings=settings)
+    return render_template('gallery.html', settings=settings.lst)
 
 @app.route('/cards/<int:id>')
 def cards(id: int):
 
-    return render_template('cards.html', settings=settings)
+    return render_template('cards.html', settings=settings.lst)
 
 @app.route('/item/5')
 def item():
-    return render_template('item.html', settings=settings)
+    return render_template('item.html', settings=settings.lst)
 
 
 
 @app.route('/auth')
 def auth():
-    return render_template('auth.html', settings=settings)
+    return render_template('auth.html', settings=settings.lst)
 
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():
@@ -92,16 +94,16 @@ def admin():
         except:
             return 'Error'
     else:
-        return render_template('admin.html', settings=settings)
+        return render_template('admin.html', settings=settings.lst)
 
 @app.route('/plant/<string:name>/<int:id>')
 def plant(name, id):
     return 'Plant page'
 
 
-@app.errorhandler(404)
-def page_not_found():
-	return render_template('404.html'), 404
+# @app.errorhandler(404)
+# def page_not_found():
+# 	return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
